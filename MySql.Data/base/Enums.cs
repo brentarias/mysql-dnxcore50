@@ -65,7 +65,7 @@ namespace System.ComponentModel
 
 namespace System.IO
 {
-#if !CF && !DNXCORE50
+#if !CF && !DOTNET5_4
   public enum FileMode
   {
     CreateNew = 1,

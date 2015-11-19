@@ -192,7 +192,7 @@ namespace zlib
 			z = null;
 		}
 
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
     public void Close()
 #else
 		public override void  Close()
@@ -211,7 +211,7 @@ namespace zlib
 			finally
 			{
 				end();
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
                 out_Renamed.Dispose();
 #else
 				out_Renamed.Close();

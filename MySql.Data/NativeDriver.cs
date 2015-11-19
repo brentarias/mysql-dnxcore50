@@ -31,10 +31,10 @@ using System.Text;
 using MySql.Data.MySqlClient.Authentication;
 using System.Reflection;
 using System.ComponentModel;
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
 using System.Linq;
 #endif
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using System.Security.Authentication;
@@ -197,7 +197,7 @@ namespace MySql.Data.MySqlClient
       try
       {
         baseStream = await StreamCreator.GetStream(Settings);
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
          if (Settings.IncludeSecurityAsserts)
             MySqlSecurityPermission.CreatePermissionSet(false).Assert();
 #endif
@@ -275,7 +275,7 @@ namespace MySql.Data.MySqlClient
       packet.WriteByte(33); //character set utf-8
       packet.Write(new byte[23]);
 
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
       if ((serverCaps & ClientFlags.SSL) == 0)
       {
         if ((Settings.SslMode != MySqlSslMode.None)
@@ -320,7 +320,7 @@ namespace MySql.Data.MySqlClient
       stream.MaxBlockSize = maxSinglePacket;
     }
 
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
 
     #region SSL
 
@@ -922,7 +922,7 @@ namespace MySql.Data.MySqlClient
         foreach (PropertyInfo property in attrs.GetType().GetProperties())
         {
           string name = property.Name;
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
           object[] customAttrs = property.GetCustomAttributes(typeof(DisplayNameAttribute), false).ToArray<object>();
 #else
           object[] customAttrs = property.GetCustomAttributes(typeof(DisplayNameAttribute), false);

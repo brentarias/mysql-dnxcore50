@@ -166,7 +166,7 @@ namespace MySql.Data.MySqlClient
     /// <summary>
     /// Gets or sets the value of the parameter.
     /// </summary>
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
     [TypeConverter(typeof(StringConverter))]
     [Category("Data")]
 #endif
@@ -310,7 +310,7 @@ namespace MySql.Data.MySqlClient
           case "Decimal": MySqlDbType = MySqlDbType.Decimal; break;
           case "Object": 
           default:
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
             if (t.GetTypeInfo().BaseType == typeof(Enum))
 #else
             if( t.BaseType == typeof( Enum ) )
@@ -327,7 +327,7 @@ namespace MySql.Data.MySqlClient
 
     public MySqlParameter Clone()
     {
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
       MySqlParameter clone = new MySqlParameter(paramName, mySqlDbType);
 #else
       MySqlParameter clone = new MySqlParameter(paramName, mySqlDbType, Direction, SourceColumn, SourceVersion, paramValue);

@@ -35,7 +35,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient.Properties;
-#if !CF && !DNXCORE50
+#if !CF && !DOTNET5_4
 using MySql.Data.MySqlClient.Replication;
 #endif
 
@@ -102,7 +102,7 @@ namespace MySql.Data.MySqlClient
     }
 
     #region Destructor
-#if !RT && !DNXCORE50
+#if !RT && !DOTNET5_4
     ~MySqlCommand()
     {
       Dispose(false);
@@ -421,7 +421,7 @@ namespace MySql.Data.MySqlClient
 
       string sql = cmdText.Trim(';');
 
-#if !CF && !DNXCORE50
+#if !CF && !DOTNET5_4
       // Load balancing getting a new connection
       if (connection.hasBeenOpen && !driver.HasStatus(ServerStatusFlags.InTransaction))
       {
@@ -438,7 +438,7 @@ namespace MySql.Data.MySqlClient
           Throw(new MySqlException(Resources.DataReaderOpen));
         }
 
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
         System.Transactions.Transaction curTrans = System.Transactions.Transaction.Current;
 
         if (curTrans != null)
@@ -991,7 +991,7 @@ namespace MySql.Data.MySqlClient
       throw ex;
     }
 
-#if !RT && !DNXCORE50
+#if !RT && !DOTNET5_4
     public void Dispose()
     {
       Dispose(true);

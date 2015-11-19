@@ -188,13 +188,13 @@ namespace zlib
 			return ((long)SupportClass.ReadInput(BaseStream, tmp, 0, tmp.Length));
 		}
 
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
     public void Close()
 #else
 		public override void Close()
 #endif
 		{
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
             in_Renamed.Dispose();
 #else
 			in_Renamed.Close();

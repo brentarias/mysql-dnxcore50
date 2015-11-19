@@ -47,7 +47,7 @@ namespace MySql.Data.MySqlClient
         Close();
     }
 
-#if !RT && !DNXCORE50
+#if !RT && !DOTNET5_4
     ~MySqlConnection()
     {
       this.Dispose();

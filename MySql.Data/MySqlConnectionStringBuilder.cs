@@ -1215,7 +1215,7 @@ namespace MySql.Data.MySqlClient
 #endif
 
       object objValue;
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
       Type baseType = BaseType.GetTypeInfo().BaseType;
 #else
       Type baseType = BaseType.BaseType;

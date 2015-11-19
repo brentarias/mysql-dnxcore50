@@ -76,7 +76,7 @@ namespace MySql.Data.MySqlClient
     {
     }
 
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
     private MySqlException(SerializationInfo info, StreamingContext context)
       : base(info, context)
     {

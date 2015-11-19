@@ -209,7 +209,7 @@ namespace MySql.Data.MySqlClient
           // make roo for the next block
           packet.Length += length;
 
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
           byte[] tempBuffer = new byte[length];
           ReadFully(inStream, tempBuffer, offset, length);
           packet.Write(tempBuffer);

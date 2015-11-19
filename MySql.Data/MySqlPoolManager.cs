@@ -44,7 +44,7 @@ namespace MySql.Data.MySqlClient
 
     static MySqlPoolManager()
     {
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
       AppDomain.CurrentDomain.ProcessExit += new EventHandler(EnsureClearingPools);
       AppDomain.CurrentDomain.DomainUnload += new EventHandler(EnsureClearingPools);
 #endif
@@ -67,7 +67,7 @@ namespace MySql.Data.MySqlClient
       {
         key = settings.ConnectionString;
       }
-#if !CF && !RT && !DNXCORE50
+#if !CF && !RT && !DOTNET5_4
       if (settings.IntegratedSecurity && !settings.ConnectionReset)
       {
         try

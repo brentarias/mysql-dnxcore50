@@ -25,7 +25,7 @@ using System.Data.Common;
 
 namespace MySql.Data.MySqlClient
 {
-#if !RT && !DNXCORE50
+#if !RT && !DOTNET5_4
   internal class BaseTransaction : DbTransaction
 #else
     internal class BaseTransaction : IDisposable

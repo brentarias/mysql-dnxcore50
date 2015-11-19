@@ -36,7 +36,7 @@ namespace MySql.Data.MySqlClient
   {
     private int executionCount;
     private int statementId;
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
     RtBitArray nullMap;
 #else
     BitArray nullMap;
@@ -99,7 +99,7 @@ namespace MySql.Data.MySqlClient
       int numNullBytes = 0;
       if (paramList != null && paramList.Length > 0)
       {
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
           nullMap = new RtBitArray(paramList.Length);
 #else
           nullMap = new BitArray(paramList.Length);

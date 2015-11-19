@@ -74,7 +74,7 @@ namespace MySql.Data.MySqlClient
       affectedRows = -1;
       this.statement = statement;
 
-#if !RT && !DNXCORE50
+#if !RT && !DOTNET5_4
       if (cmd.CommandType == CommandType.StoredProcedure 
         && cmd.UpdatedRowSource == UpdateRowSource.FirstReturnedRecord
       )
@@ -804,7 +804,7 @@ namespace MySql.Data.MySqlClient
 
     #endregion
 
-#if !RT && !DNXCORE50
+#if !RT && !DOTNET5_4
     IDataReader IDataRecord.GetData(int i)
     {
       return base.GetData(i);
@@ -949,7 +949,7 @@ namespace MySql.Data.MySqlClient
       IMySqlValue v = resultSet[index];
 
       if (checkNull && v.IsNull)
-#if RT || DNXCORE50
+#if RT || DOTNET5_4
         throw new MySqlNullValueException();
 #else
         throw new System.Data.SqlTypes.SqlNullValueException();
