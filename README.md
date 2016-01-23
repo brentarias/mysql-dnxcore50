@@ -1,5 +1,6 @@
 # mysql-dnxcore50
-This is a barely-tested, stripped-down version of the MySQL Connector/Net 6.9.7 library for DNXCore50.
+This is a barely-tested, stripped-down version of the MySQL Connector/Net 6.9.7 library for .NET Core.
+Nuget Package available at https://www.myget.org/feed/sapientguardian/package/nuget/mysql-dnxcore50
 
 I've removed tons of Windows-specific functionality, replication, localization, transactions, etc. The following basic scenario works:
 
@@ -31,3 +32,4 @@ I've removed tons of Windows-specific functionality, replication, localization, 
 		}
 	}
 ```
+

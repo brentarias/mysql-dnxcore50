@@ -1,9 +1,9 @@
 ﻿{
   "version": "1.0.0-alpha",
-  "description": "MySQL DOTNET5_4 Library",
+  "description": "Stripped down port of the MySQL client Library for .Net Core",
   "authors": [ "Oracle", "SapientGuardian" ],
-  "tags": [ "" ],
-  "projectUrl": "",
+  "tags": [ "coreclr", "dnxcore50", "dnx", "mysql" ],
+  "projectUrl": "https://github.com/SapientGuardian/mysql-dnxcore50",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
 
   "frameworks": {
