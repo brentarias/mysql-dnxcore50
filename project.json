@@ -1,6 +1,7 @@
 {
-  "version": "1.2.1-alpha",
+  "version": "1.2.2-alpha",
   "description": "Stripped down port of the MySQL client Library for .Net Core",
+  "releaseNotes": "Bumped version for new NuGet package that does not have *_2.dll files.",
   "authors": [ "Oracle", "SapientGuardian" ],
   "tags": [ "coreclr", "dnxcore50", "dnx", "mysql" ],
   "projectUrl": "https://github.com/SapientGuardian/mysql-dnxcore50",
